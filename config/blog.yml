@@ -1,4 +1,4 @@
-title: "Rocket Blog"
+title: "Actix Blog"
 description: "A blog about stuff"
 default: rust-is-hard
 posts:
@@ -40,7 +40,7 @@ posts:
     date: 2022-10-24
     body: >
       ## The Problem
-      
+
       I have noticed over the years that REST API endpoints have been abused. This
       is an honest mistake that anyone can make.  The problem is related to observability
       and the ability to monitor the health of your API.  The problem is that 404's
@@ -62,8 +62,8 @@ posts:
       If you are calling an endpoint and a 404 is expected behavior, then you are not using the API correctly.
 
       ## The Solution
-      
-      The solution is to provide a search endpoint similar to the index.html.  This endpoint will always return a list 
+
+      The solution is to provide a search endpoint similar to the index.html.  This endpoint will always return a list
       and a status of 200 success.  This endpoint should can provide a query or filter mechanism to find specific resources.
       Anything that matches the pattern provided by the client should be returned in an array.  If nothing matches, then
       an empty array should be returned.  This will allow the client to check if the resource exists or not without
@@ -73,19 +73,19 @@ posts:
 
       A search endpoint should return a 200 response with an empty result set if no results are found:
       ``
-      GET /api/users?id={id} 
+      GET /api/users?id={id}
       200 OK
       []
       ``
-      
+
       A lookup endpoint should return a 404 response if no results are found:
       ``
-      GET /api/users/{id} 
+      GET /api/users/{id}
       404 Not Found
       ``
-     
+
       ## Conclusion
-      
+
       Properly designing your REST endpoints and the contract between you and your clients is important.  You will need to
       think through how your API will be used and document how it should be used.  This will help you and your clients
       to avoid making mistakes.  Reliability, Scalability and Observability are key to providing a solid product.  A well designed
@@ -123,9 +123,9 @@ posts:
 
       ## What is the meaning of life?
 
-      The meaning of life is to write code. I write code all day long. I write code for you. I write code for myself. I write code for everyone. 
+      The meaning of life is to write code. I write code all day long. I write code for you. I write code for myself. I write code for everyone.
       I write code for everything. I write code for the world. I write code for the universe. I write code for the galaxy.
 
       ## Thank you for your time.
-      
+
       You are welcome.

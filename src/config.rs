@@ -4,7 +4,7 @@ use serde_yaml::{self};
 use std::fmt::Debug;
 use std::fs::File;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Post {
     pub slug: String,
     pub title: String,
@@ -19,7 +19,7 @@ impl Post {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Config {
     pub title: String,
     pub description: String,
