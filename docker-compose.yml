@@ -7,8 +7,5 @@ services:
     image: drujensen/actix-blog:latest
     platform: linux/arm64
     command: /app/actix-blog
-    environment:
-      - ACTIX_ADDRESS=0.0.0.0
-      - ACTIX_PORT=80
     ports:
-      - 80:80
+      - 8000:8000
