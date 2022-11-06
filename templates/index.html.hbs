@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{description}}">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <script src="/scripts/htmx.js"></script>
+</head>
+<body>
+  <div class="header">
+    <img src="/images/logo.png"/>
+    <ul>
+    {{#each posts}}
+      <li><a href="/{{this.slug}}" hx-get="/content/{{this.slug}}" hx-target="#content" hx-replace-url="/{{slug}}">{{this.title}}</a> ({{this.date}})</li>
+    {{/each}}
+    </ul>
+  </div>
+
+  <div id="content" hx-get="/content/{{current}}" hx-trigger="load delay:100ms" hx-target="#content"></div>
+</body>
+</html>
