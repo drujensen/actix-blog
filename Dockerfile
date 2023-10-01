@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y $(cat /.compiler)
 COPY Cargo.toml .
 COPY Cargo.lock .
 COPY src src
-RUN RUSTFLAGS="-C linker=$(cat /.linker)" cargo build --release --target $(cat /.platform) 
+RUN RUSTFLAGS="-C linker=$(cat /.linker)" cargo build --release --target $(cat /.platform)
 RUN cp /app/target/$(cat /.platform)/release/actix-blog /app/
 
 # Copy resources

@@ -4,9 +4,12 @@ use handlebars::Handlebars;
 use serde_json::json;
 
 mod config;
+mod post;
+
+use config::Config;
 
 #[get("/")]
-async fn index(hb: web::Data<Handlebars<'_>>, config: web::Data<config::Config>) -> impl Responder {
+async fn index(hb: web::Data<Handlebars<'_>>, config: web::Data<Config>) -> impl Responder {
     let default = config.default.clone();
     current(hb, config, default)
 }
@@ -14,7 +17,7 @@ async fn index(hb: web::Data<Handlebars<'_>>, config: web::Data<config::Config>)
 #[get("/{current}")]
 async fn detail(
     hb: web::Data<Handlebars<'_>>,
-    config: web::Data<config::Config>,
+    config: web::Data<Config>,
     path: web::Path<String>,
 ) -> impl Responder {
     current(hb, config, path.into_inner())
@@ -38,7 +41,7 @@ fn current(
 
 #[get("/content/{slug}")]
 async fn content(
-    config: web::Data<config::Config>,
+    config: web::Data<Config>,
     hb: web::Data<Handlebars<'_>>,
     path: web::Path<String>,
 ) -> impl Responder {
@@ -58,7 +61,7 @@ async fn content(
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let config = config::Config::new();
+    let config = Config::new();
     let mut handlebars = Handlebars::new();
 
     handlebars
